@@ -35,12 +35,14 @@ for d in dirlist:
 		print cats
 		try:
 			data = str(text.find('no-body')).replace('<no-body>', '').replace('</no-body>','').split('.\n')
+			print len(data)
 			sents = []
 			for d in data:
 				cleand = DataClean(d).getData()
-			sents.append(cleand)
+				# print cleand
+				sents.append(cleand)
 			query = "insert into `r21578`(did, newid, cats, data) values(%s, %s, '%s', '%s')" \
-					%(doc['oldid'], doc['newid'], json.dumps(cats), json.dumps(sents))
+					%(doc['oldid'], doc['newid'], json.dumps(cats), json.dumps(sents).replace('\'', '\\\''))
 			cursor.execute(query)
 			connection.commit()
 		except Exception,e:
