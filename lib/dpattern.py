@@ -13,10 +13,11 @@ class DP(object):
 
 	def d_patterns(self, doc):
 			if len(doc) > 1:
-				min_sup = 1 if self.min_sup*len(doc) < 1 else self.min_sup*len(doc)
-				sp = Gapbide(doc, min_sup, 0, 3).run()
+				min_sup = 2 if self.min_sup*len(doc) < 1 else self.min_sup*len(doc)
+				sp = Gapbide(doc, min_sup, 0, 0).run()
 			else:
 				sp = doc
+			print len(sp)
 			dp = {}
 			for pat in sp:
 				p = {}

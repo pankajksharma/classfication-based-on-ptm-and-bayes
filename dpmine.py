@@ -12,10 +12,11 @@ while True:
 	c = cursor.fetchone()
 	if not c:
 		break
-	print json.loads(c[-1]), c[1]
+	# print json.loads(c[-1]), c[1]
 	# break
+	print c[0],
 	dps = dp.d_patterns(json.loads(c[-1]))
-	print dps
-	query = "update data set dp = '%s' where id = %s" %(json.dumps(dps).replace('\'', '\\\''), str(c[0]))
+	# print dps
+	query = "update r21578 set dp = '%s' where id = %s" %(json.dumps(dps).replace('\'', '\\\''), str(c[0]))
 	cursor2.execute(query)
 	connection.commit()
