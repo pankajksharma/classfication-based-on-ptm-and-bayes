@@ -42,7 +42,7 @@ for d in dirlist:
 				# print cleand
 				sents.append(cleand)
 			query = "insert into `r21578`(did, newid, type, cats, data) values(%s, %s, '%s', '%s', '%s')" \
-					%(doc['oldid'], doc['newid'], doc['lewissplit'] json.dumps(cats), json.dumps(sents).replace('\'', '\\\''))
+					%(doc['oldid'], doc['newid'], doc['lewissplit'], json.dumps(cats), json.dumps(sents).replace('\'', '\\\''))
 			cursor.execute(query)
 			connection.commit()
 		except Exception,e:
