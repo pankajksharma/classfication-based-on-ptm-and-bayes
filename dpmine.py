@@ -4,7 +4,7 @@ from lib.mysql import connection
 
 cursor = connection.cursor()
 cursor2 = connection.cursor()
-query = "select id, did, data from r21578 where type='test' and dp = ''"
+query = "select id, did, data from r21578 where type='train' and dp = ''"
 cursor.execute(query)
 cursor.scroll(0, 'absolute')
 dp = DP(0.3)
