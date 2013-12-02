@@ -1,7 +1,7 @@
 import json, MySQLdb
 from lib.dpattern import DP
+from lib.mysql import connection
 
-connection = MySQLdb.connect('localhost', 'root', 'root', 'mining')
 cursor = connection.cursor()
 cursor2 = connection.cursor()
 query = "select id, did, data from r21578 where dp = ''"

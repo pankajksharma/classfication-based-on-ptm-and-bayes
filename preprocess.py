@@ -1,12 +1,12 @@
 import os, json, MySQLdb
 from bs4 import BeautifulSoup
+from lib.mysql import connection
 from lib.datacleaner import DataClean
 
 DATA_FOLDER = "data/"
 PROCESSED_DATA_FOLDER = "processed-data/"
 TRAIN_DATA = "data/train/"
 
-connection = MySQLdb.connect('localhost', 'root', 'root', 'mining')
 cursor = connection.cursor()
 
 dirlist = os.listdir(DATA_FOLDER)
